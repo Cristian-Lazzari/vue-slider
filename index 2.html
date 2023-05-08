@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carosello!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="root" class="carosello">
+            <div v-for="(element, id) in images" class="img-container">
+
+                <div class="current-img" :class="{hidden: counter !== id}" :style="background-image: url('elemnt.image')">
+
+                    <h3 class="titolo">{{element.title}}</h3>
+                    <p class="paragrafo">{{element.text}}</p>
+                    
+                </div>  
+
+            </div> 
+            
+            <div class="thumbs">
+                <div class="btn btn-up">&#8679;</div>
+                <div class="btn btn-down">&#10225;</div>
+                <div class="btn btn-right"></div>
+                
+                <div v-for="(element, id) in images" class="preview">
+                    <div style="background-image: url('elemnt.image');" class="img-miniature " :class="{img-active: counter !== id}"></div>`;
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
