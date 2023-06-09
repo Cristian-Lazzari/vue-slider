@@ -8,26 +8,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div id="root" class="carosello">
-            <div v-for="(element, id) in images" class="img-container">
-
-                <div class="current-img" :class="{hidden: counter !== id}" :style="background-image: url('elemnt.image')">
-
-                    <h3 class="titolo">{{element.title}}</h3>
-                    <p class="paragrafo">{{element.text}}</p>
-                    
-                </div>  
-
-            </div> 
+    <div id="root" class="container">
+        <div  class="carosello">
+            <div class="img-container">
             
+            <div 
+                class="current-img" 
+                v-for="(element, id) in images"
+                key="img"
+                v-show="counter == id"
+                :style="background-color: url('element.image');"
+                div>
+                
+                <h3 v-show="counter == id" v-for="element in images" class="titolo">{{element.title}}</h3>
+                
+                <p v-show="counter == id" v-for="(element, id) in images" class="paragrafo">{{element.text}}</p>
+                
+            </div>  
+            
+        </div> 
+        
             <div class="thumbs">
                 <div class="btn btn-up">&#8679;</div>
                 <div class="btn btn-down">&#10225;</div>
                 <div class="btn btn-right"></div>
                 
-                <div v-for="(element, id) in images" class="preview">
-                    <div style="background-image: url('elemnt.image');" class="img-miniature " :class="{img-active: counter !== id}"></div>`;
+                <div class="preview">
+                    <img 
+                    key="img"
+                    v-for="(element, id) in images" 
+                    class="img-miniature" 
+                    :class="{'img-active': id == counter}"
+                    :src="element.image" 
+                    >;
                 </div>
 
             </div>
