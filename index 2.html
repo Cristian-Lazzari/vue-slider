@@ -17,8 +17,8 @@
                 v-for="(element, id) in images"
                 key="img"
                 v-show="counter == id"
-                :style="background-color: url('element.image');"
-                div>
+                :style="`background-image: url('${element.image}')`"
+                >
                 
                 <h3 v-show="counter == id" v-for="element in images" class="titolo">{{element.title}}</h3>
                 
